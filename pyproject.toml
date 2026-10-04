@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "boxbox"
+dynamic = ["version"]
+description = "Formula 1 in your terminal: live timing, standings, results and the season calendar."
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "bilal-psd" }]
+requires-python = ">=3.8"
+dependencies = []
+keywords = ["f1", "formula1", "formula-1", "live-timing", "terminal", "cli", "tui"]
+classifiers = [
+    "Environment :: Console",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: MacOS",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Topic :: Utilities",
+]
+
+[project.urls]
+Homepage = "https://github.com/bilal-psd/boxbox"
+Issues = "https://github.com/bilal-psd/boxbox/issues"
+
+[project.scripts]
+boxbox = "boxbox:main"
+
+[tool.setuptools]
+py-modules = ["boxbox"]
+
+[tool.setuptools.dynamic]
+version = { attr = "boxbox.__version__" }
