@@ -3,7 +3,7 @@
 **Formula 1 in your terminal.** Live timing, a track position line, driver battles, standings, results and the
 season calendar. One Python file, no dependencies.
 
-![boxbox live timing during the 2026 Bahrain Grand Prix: status banner, track position line, timing tower with mini-sectors and tyres, and race control](docs/screenshot-live.png)
+![boxbox live timing during the 2026 Bahrain Grand Prix: status banner, track position line, timing tower with mini-sectors and tyres, and race control](https://raw.githubusercontent.com/bilal-psd/boxbox/main/docs/screenshot-live.png)
 
 ## Features
 
@@ -48,24 +48,31 @@ All times are shown in your local timezone.
 
 You need Python 3.8 or newer. There are no other dependencies.
 
-With [pipx](https://pipx.pypa.io) (recommended):
+With [pipx](https://pipx.pypa.io) or [uv](https://docs.astral.sh/uv/) (recommended, since they keep boxbox in its own
+environment):
 
 ```bash
-pipx install git+https://github.com/bilal-psd/boxbox.git
+pipx install boxbox
 ```
-
-Or with pip:
 
 ```bash
-pip install git+https://github.com/bilal-psd/boxbox.git
+uv tool install boxbox
 ```
 
-Or just grab the single file and run it:
+Or try it without installing anything:
+
+```bash
+uvx boxbox live
+```
+
+Plain `pip install boxbox` works too. You can also grab the single file and run it:
 
 ```bash
 curl -O https://raw.githubusercontent.com/bilal-psd/boxbox/main/boxbox.py
 python3 boxbox.py
 ```
+
+To update later: `pipx upgrade boxbox` or `uv tool upgrade boxbox`.
 
 ## Live timing keys
 
