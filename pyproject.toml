@@ -3,7 +3,7 @@ requires = ["setuptools>=77"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "boxbox"
+name = "pitlane"
 dynamic = ["version"]
 description = "Formula 1 in your terminal: live timing, standings, results and the season calendar."
 readme = "README.md"
@@ -22,14 +22,14 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/bilal-psd/boxbox"
-Issues = "https://github.com/bilal-psd/boxbox/issues"
+Homepage = "https://github.com/bilal-psd/pitlane"
+Issues = "https://github.com/bilal-psd/pitlane/issues"
 
 [project.scripts]
-boxbox = "boxbox:main"
+pitlane = "pitlane:main"
 
 [tool.setuptools]
-py-modules = ["boxbox"]
+py-modules = ["pitlane"]
 
 [tool.setuptools.dynamic]
-version = { attr = "boxbox.__version__" }
+version = { attr = "pitlane.__version__" }

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""boxbox - a Formula 1 tracker for your terminal.
+"""pitlane - a Formula 1 tracker for your terminal.
 
 Data comes from the Jolpica F1 API (the community successor to Ergast), and
 live timing from Formula 1's own public live-timing feed.
@@ -23,10 +23,10 @@ import urllib.request
 from datetime import datetime, timedelta, timezone
 
 API = "https://api.jolpi.ca/ergast/f1"
-CACHE_DIR = os.path.join(os.path.expanduser("~"), ".cache", "boxbox")
+CACHE_DIR = os.path.join(os.path.expanduser("~"), ".cache", "pitlane")
 CACHE_TTL = 300  # seconds
 __version__ = "0.1.0"
-USER_AGENT = "boxbox/" + __version__
+USER_AGENT = "pitlane/" + __version__
 LIVE_URL = "https://livetiming.formula1.com/signalrcore"
 
 # ---------------------------------------------------------------------------
@@ -518,7 +518,7 @@ def render_next_race(season, refresh=False):
             line = dim("  {}  {}".format(label.ljust(16), fmt_local(dt)))
         elif delta < 0:
             status = badge("LIVE?", (225, 6, 0), (255, 255, 255)) + dim(
-                "  try: boxbox live")
+                "  try: pitlane live")
             line = "  {}  {}".format(bold(label.ljust(16)), fmt_local(dt))
         else:
             status = green("in " + fmt_delta(delta))
@@ -1422,7 +1422,7 @@ def _detail_sections(state, view, is_race, width):
         laps_sec.append(rgb_fg((0, 200, 80), sparkline(times))
                         + dim("  {} laps".format(len(times))))
     else:
-        laps_sec.append(dim("Fills in while boxbox is running."))
+        laps_sec.append(dim("Fills in while pitlane is running."))
     return out, secs
 
 
@@ -1713,7 +1713,7 @@ def latest_with_data(season, kind, refresh=False):
 
 
 def banner():
-    return " " + badge("BOX BOX", (225, 6, 0), (255, 255, 255)) \
+    return " " + badge("PITLANE", (225, 6, 0), (255, 255, 255)) \
         + dim("  F1 in your terminal")
 
 
@@ -1751,14 +1751,14 @@ def round_arg(v):
 def main(argv=None):
     global USE_COLOR
     p = argparse.ArgumentParser(
-        prog="boxbox", description="Formula 1 tracker for your terminal.")
+        prog="pitlane", description="Formula 1 tracker for your terminal.")
     p.add_argument("-s", "--season", default="current", type=season_arg,
                    help="season year (default: current)")
     p.add_argument("-r", "--refresh", action="store_true",
                    help="ignore the 5-minute cache and fetch fresh data")
     p.add_argument("--no-color", action="store_true", help="disable colours")
     p.add_argument("--version", action="version",
-                   version="boxbox " + __version__)
+                   version="pitlane " + __version__)
     sub = p.add_subparsers(dest="cmd")
     sub.add_parser("dashboard", help="overview (default)")
     sub.add_parser("drivers", help="driver championship standings")

@@ -1,4 +1,4 @@
-# Builds boxbox and publishes it to PyPI whenever a GitHub release is published.
+# Builds pitlane and publishes it to PyPI whenever a GitHub release is published.
 # Uses PyPI trusted publishing, so no API token is stored in the repo.
 name: Publish to PyPI
 
@@ -14,9 +14,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Check the release tag matches the version in boxbox.py
+      - name: Check the release tag matches the version in pitlane.py
         run: |
-          version=$(python -c "import boxbox; print(boxbox.__version__)")
+          version=$(python -c "import pitlane; print(pitlane.__version__)")
           tag="${GITHUB_REF_NAME#v}"
           if [ "$version" != "$tag" ]; then
             echo "Release tag v$tag does not match __version__ $version" >&2
@@ -36,7 +36,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: pypi
-      url: https://pypi.org/project/boxbox/
+      url: https://pypi.org/project/pitlane/
     permissions:
       id-token: write  # required for trusted publishing
     steps:
